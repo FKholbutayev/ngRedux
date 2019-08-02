@@ -26,20 +26,20 @@
       "artist": "Third Eye Blind",
       "track": "Get Me Out Of Here",
       "listened": true,
-      "favourite": false
+      "favourite": true
     },
     {
       "id": 5,
       "artist": "The Chainsmokers",
       "track": "Closer",
-      "listened": false,
+      "listened": true,
       "favourite": false
     },
     {
       "id": 6,
       "artist": "Sia",
       "track": "Cheap Thrills",
-      "listened": true,
+      "listened": false,
       "favourite": true
     },
     {

@@ -11,10 +11,10 @@ import 'rxjs/add/operator/map';
     selector:'songs-favourites', 
     template: `
         <div class="songs">
-            <div *ngFor = "let item of favourites$ | async">
-                {{ item.artist }}
-                {{ item.track }}
-            </div>
+            <songs-list 
+            [list]="favourites$|async"
+            (toggle)="onToggle($event)">
+            Favourites</songs-list>
         </div>
     `
 })
@@ -22,7 +22,7 @@ import 'rxjs/add/operator/map';
 export class SongsFavouriteComponent implements OnInit {
     favourites$ : Observable<any[]>
     constructor(private store:Store, 
-                private songsSerivce:SongsService) {
+                private songsService:SongsService) {
         
     }
 
@@ -32,4 +32,8 @@ export class SongsFavouriteComponent implements OnInit {
             .map(playlist => playlist.filter(track => track.favourite));
         
     }
+    onToggle(event) {
+        this.songsService.toggle(event)
+    }
+    
 }

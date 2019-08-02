@@ -10,10 +10,10 @@ import { Subscription } from "rxjs/Subscription";
     selector:'songs-playlist', 
     template: `
         <div class="songs"> 
-            <div *ngFor = "let item of playlist$ | async">
-                {{ item.artist }}
-                {{ item.track }}
-            </div>
+            <songs-list
+            [list]="playlist$ | async"
+            (toggle)="onToggle($event)"> Playlist
+            </songs-list>
         </div>
     `
 })
@@ -31,6 +31,10 @@ export class SongsPlaylistComponent implements OnInit, OnDestroy {
         this.playlist$ = this.store.select('playlist');
         this.subscription = this.songsService.getPlaylist$.subscribe();
         
+    }
+
+    onToggle(event) {
+        this.songsService.toggle(event)
     }
 
     ngOnDestroy(): void {

@@ -9,11 +9,11 @@ import { Observable } from "rxjs/Observable";
     selector:'songs-listened', 
     template: `
         <div class="songs">
-        <div *ngFor = "let item of listened$ | async">
-        {{ item.artist }}
-        {{ item.track }}
-    </div>
-        </div>
+        <songs-list
+        [list]="listened$ | async "
+        (toggle)="onToggle($event)">Listened
+        </songs-list>
+         </div>
     `
 })
 
@@ -22,6 +22,10 @@ export class SongsListenedComponent implements OnInit {
     constructor(private store:Store,
                 private songsService:SongsService) {
         
+    }
+
+    onToggle(event) {
+        this.songsService.toggle(event)
     }
 
     ngOnInit(): void {
