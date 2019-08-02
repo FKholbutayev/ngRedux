@@ -4,8 +4,8 @@
       "id": 1,
       "artist": "Oasis",
       "track": "Half The World Away",
-      "listened": false,
-      "favourite": true
+      "listened": true,
+      "favourite": false
     },
     {
       "id": 2,
@@ -25,14 +25,14 @@
       "id": 4,
       "artist": "Third Eye Blind",
       "track": "Get Me Out Of Here",
-      "listened": true,
+      "listened": false,
       "favourite": true
     },
     {
       "id": 5,
       "artist": "The Chainsmokers",
       "track": "Closer",
-      "listened": true,
+      "listened": false,
       "favourite": false
     },
     {

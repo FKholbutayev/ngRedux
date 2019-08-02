@@ -32,17 +32,17 @@ export class SongsService {
                 .put(`/api/playlist/${event.track.id}`, event.track)
                 .map(res => res.json())
                 .subscribe((track:Song) => {
-                    const value = this.store.value.playlist; 
                     
+                    const value = this.store.value.playlist; 
                     const playlist = value.map((song:Song) => {
                         if (event.track.id === song.id) {
                             return { ...song, ...event.track}
                         } else {
-                            song;
+                            return song;
                         }
                     }); 
 
-                    this.store.set('playlist', playlist)
+                    this.store.set('playlist', playlist);
                 })
         }
 }
